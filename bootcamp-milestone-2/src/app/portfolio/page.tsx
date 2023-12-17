@@ -1,7 +1,10 @@
-import Link from 'next/link'
+//import Link from 'next/link'
 import React from 'react'
+import connectDB from '@/helpers/db';
+import Portfolios from '@/database/PortfolioSchema';
+import PortfolioPreview from '@/components/portfoliopreview';
 
-export default function Portfolio() {
+/*export default function Portfolio() {
     const imgstyle = {
         height: "400px",
         border: "5px black",
@@ -24,4 +27,47 @@ export default function Portfolio() {
         </div>
     </main>
 </div>)
+}*/
+
+async function getPortfolio(){
+	await connectDB(); // function from db.ts before
+
+	try {
+			// query for all blogs and sort by date
+	    const portfolioitems = await Portfolios.find().sort({ date: -1 }).orFail();
+			// send a response as the blogs as the message
+	    return portfolioitems;
+	} catch (err) {
+	    return null;
+	}
+}
+
+export default async function PortfolioList() {
+    const portfoliolist = await getPortfolio();
+    if (portfoliolist == null) {
+        return (
+            <div>
+                <title>Portfolio</title>
+                <h1>No portfolio yet</h1>
+            </div>
+        );
+    }
+    else {
+        return (
+            <main>
+                <title>Portfolio</title>
+                <div className="indivblog">
+                {portfoliolist.map((p) => (
+                    <PortfolioPreview
+                        title={p.title}
+                        description={p.description}
+                        slug={p.slug}
+                        image={p.image}
+                        link={p.link}
+                    /> // This is how we call the component
+                    ))}
+                </div>
+            </main>
+        );
+    }
 }
