@@ -23,3 +23,4 @@ const Portfolios = mongoose.models['Project'] ||
 mongoose.model('Project', portfolioSchema);
 
 export default Portfolios;
+export type { IPortfolio };

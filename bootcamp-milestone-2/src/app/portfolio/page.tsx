@@ -1,5 +1,6 @@
 //import Link from 'next/link'
 import React from 'react'
+import './page.css'
 import connectDB from '@/helpers/db';
 import Portfolios from '@/database/PortfolioSchema';
 import PortfolioPreview from '@/components/portfoliopreview';

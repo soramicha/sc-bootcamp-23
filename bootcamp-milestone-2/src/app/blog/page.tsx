@@ -1,3 +1,4 @@
+import "./page.css";
 //import blogs from '@/app/blogData';
 import React from 'react'
 import BlogPreview from '@/components/blogPreview';
@@ -67,6 +68,7 @@ export default async function BlogList() {
                         date={blog.date.toLocaleString()}
                         description={blog.description}
                         image={blog.image}
+                        comments={[]}
                         /> // This is how we call the component
                     ))}
                 </div>

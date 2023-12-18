@@ -1,14 +1,7 @@
 import React from 'react';
 import style from './portfolioPreview.module.css'
 import Link from "../../node_modules/next/link";
-
-type IPortfolio = {
-    title: string;
-    description: string; // for preview
-    link: string;
-    image: string;
-    slug: string;
-};
+import type { IPortfolio } from "@/database/portfolioSchema"
 
 export default function PortfolioPreview(props: IPortfolio) {
   return (
