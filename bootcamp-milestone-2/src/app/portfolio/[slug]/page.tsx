@@ -1,22 +1,21 @@
 import type { IComment } from "@/database/blogSchema";
-import CreateComment from "@/components/createComment";
+import CreateComment from "@/components/createCommentportfolio";
 import Comment from "@/components/commentPreview";
 import React from "react";
 import "./page.css";
-
 
 type Props = {
   params: { slug: string };
 };
 
-async function getBlog(slug: string) {
+async function getPortfolio(slug: string) {
   try {
-    const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
+    const res = await fetch(`http://localhost:3000/api/portfolio/${slug}`, {
       cache: "no-store",
     });
 
     if (!res.ok) {
-      throw new Error("Failed to fetch blog");
+      throw new Error("Failed to fetch portfolio");
     }
 
     return res.json();
@@ -28,13 +27,13 @@ async function getBlog(slug: string) {
 
 export default async function IndivBlog({ params }: Props) {
   const slug = params.slug;
-  const blog = await getBlog(slug);
+  const blog = await getPortfolio(slug);
 
   if (blog == null) {
     return (
       <div>
-        <title>Blogs</title>
-        <h1>No blogs yet</h1>
+        <title>Portfolio</title>
+        <h1>No portfolios yet</h1>
       </div>
     );
   } else {
@@ -46,17 +45,18 @@ export default async function IndivBlog({ params }: Props) {
           <h1 className="page-title">{blog.title}</h1>
           <img className="blogimg" alt="img" src={`/${blog.image}`}></img>
           <br></br>
-          <p>{new Date(blog.date).toDateString()}</p>
           <p>{blog.description}</p>
           <br></br>
-          <h1><b>Comments</b></h1>
+          <h1>
+            <b>Comments</b>
+          </h1>
           <br></br>
-            {blog.comments.map((comment: IComment, index: number) => (
+          {blog.comments.map((comment: IComment, index: number) => (
               <div key={index} className="boxdiv">
                 <Comment key={index} comment={comment} />
                 <br></br>
               </div>
-            ))}
+          ))}
           <CreateComment slug={blog.slug}></CreateComment>
           <br></br>
         </main>

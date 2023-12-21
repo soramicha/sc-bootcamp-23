@@ -1,4 +1,3 @@
-//import Link from 'next/link'
 import React from 'react'
 import './page.css'
 import connectDB from '@/helpers/db';
@@ -59,15 +58,17 @@ export default async function PortfolioList() {
                 <title>Portfolio</title>
                 <div className="indivblog">
                 {portfoliolist.map((p) => (
-                    <PortfolioPreview
+                    <PortfolioPreview key={p._id}
                         title={p.title}
                         description={p.description}
                         slug={p.slug}
                         image={p.image}
                         link={p.link}
+                        comments={[]}
                     /> // This is how we call the component
                     ))}
                 </div>
+
             </main>
         );
     }

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import connectDB from "@/helpers/db"
-import blogSchema from '@/database/blogSchema'
+import portfolioSchema from '@/database/portfolioSchema'
 
 type IParams = {
 		params: {
@@ -24,37 +24,29 @@ type IParams = {
 	lol.
 
  */
-export async function GET(req: NextRequest, { params }: IParams) {
-    await connectDB() // function from db.ts before
-		const { slug } = params // another destructure
-
-	   try {
-	        const blog = await blogSchema.findOne({ slug }).orFail()
-	        return NextResponse.json(blog)
-	    } catch (err) {
-	        return NextResponse.json('Blog not found.', { status: 404 })
-	    }
-}
 
 export async function POST(req: NextRequest, { params }: IParams) {
 	await connectDB();
 	const { slug } = params;
 
-	console.log(slug);
+	console.log("POST FOR CONTACT");
 
 	try {
-		const blog = await blogSchema.findOne({ slug }).orFail(); // get the particular blog
+		const blog = await portfolioSchema.findOne({ slug }).orFail(); // get the particular portfolio
 		const body = await req.json();
+
+		console.log("body");
 		blog.comments.push(body);
 
-		blog.save();
-
-		console.log("Blog comment successfully added!");
-		return NextResponse.json('Successfully added comment');
+		console.log("pushed");
+		const res = blog.save();
+		
+		console.log("Contact email successfully sent!");
+		return NextResponse.json('Email sent!');
 	}
 	catch (err) {
-		console.log("FAILED :(");
-		return NextResponse.json('Unable to add comment', { status: 404 });
+		console.log("FAILED to send email :(");
+		return NextResponse.json('Unable to send email', { status: 404 });
 	}
 
 	

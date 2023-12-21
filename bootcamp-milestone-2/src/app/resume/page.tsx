@@ -6,7 +6,7 @@ export default function Resume() {
     <title>Resume</title>
         <br></br>
         <h1 className="page-title">~ Sophia Chang ~</h1>
-        <Link className="link" href="/resume" download>Download Resume</Link>
+        <p><Link className="link" href="/resume" download>Download Resume</Link></p>
         <div className="resume">
             <section className="section">
                 <h2 className="section-title">Education</h2>
@@ -96,4 +96,3 @@ export default function Resume() {
 </div>
     )
 }
-

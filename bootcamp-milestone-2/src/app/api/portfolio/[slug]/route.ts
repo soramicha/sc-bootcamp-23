@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import connectDB from "@/helpers/db"
-import blogSchema from '@/database/blogSchema'
+import portfolioSchema from '@/database/portfolioSchema'
 
 type IParams = {
 		params: {
@@ -27,12 +27,12 @@ type IParams = {
 export async function GET(req: NextRequest, { params }: IParams) {
     await connectDB() // function from db.ts before
 		const { slug } = params // another destructure
-
+		console.log("Searching for portfolio atm");
 	   try {
-	        const blog = await blogSchema.findOne({ slug }).orFail()
+	        const blog = await portfolioSchema.findOne({ slug }).orFail()
 	        return NextResponse.json(blog)
 	    } catch (err) {
-	        return NextResponse.json('Blog not found.', { status: 404 })
+	        return NextResponse.json('Portfolio not found.', { status: 404 })
 	    }
 }
 
@@ -40,20 +40,23 @@ export async function POST(req: NextRequest, { params }: IParams) {
 	await connectDB();
 	const { slug } = params;
 
-	console.log(slug);
+	console.log(slug + " is the slug for portfolio");
 
 	try {
-		const blog = await blogSchema.findOne({ slug }).orFail(); // get the particular blog
+		const blog = await portfolioSchema.findOne({ slug }).orFail(); // get the particular portfolio
 		const body = await req.json();
+
+		console.log("body");
 		blog.comments.push(body);
 
-		blog.save();
-
-		console.log("Blog comment successfully added!");
+		console.log("pushed");
+		const res = blog.save();
+		
+		console.log("Portfolio comment successfully added!");
 		return NextResponse.json('Successfully added comment');
 	}
 	catch (err) {
-		console.log("FAILED :(");
+		console.log("FAILED to add comment for portfolio :(");
 		return NextResponse.json('Unable to add comment', { status: 404 });
 	}
 
