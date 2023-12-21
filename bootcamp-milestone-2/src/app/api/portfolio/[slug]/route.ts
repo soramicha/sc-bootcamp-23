@@ -50,7 +50,7 @@ export async function POST(req: NextRequest, { params }: IParams) {
 		blog.comments.push(body);
 
 		console.log("pushed");
-		const res = blog.save();
+		blog.save();
 		
 		console.log("Portfolio comment successfully added!");
 		return NextResponse.json('Successfully added comment');

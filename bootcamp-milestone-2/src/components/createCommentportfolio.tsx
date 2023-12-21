@@ -34,7 +34,6 @@ const CreateComment = (slug: any) => {
         required
         id="name"
         placeholder="Name"
-        type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
