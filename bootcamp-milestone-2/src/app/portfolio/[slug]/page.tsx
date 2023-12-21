@@ -3,6 +3,7 @@ import CreateComment from "@/components/createCommentportfolio";
 import Comment from "@/components/commentPreview";
 import React from "react";
 import "./page.css";
+import Image from 'next/image'
 
 type Props = {
   params: { slug: string };
@@ -43,7 +44,7 @@ export default async function IndivBlog({ params }: Props) {
         <main>
           <br></br>
           <h1 className="page-title">{blog.title}</h1>
-          <img className="blogimg" alt="img" src={`/${blog.image}`}></img>
+          <Image className="blogimg" width="500" height="250" alt="img" src={`${blog.image}`}></Image>
           <br></br>
           <p>{blog.description}</p>
           <br></br>

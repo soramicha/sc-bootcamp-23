@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 // You can name the function within page.tsx anything you want.
 export default function Home() {
@@ -10,7 +11,7 @@ export default function Home() {
             <br></br>
             <div className="about">
                 <div className="about-image">
-                    <img src="aboutme.jpeg" alt="an about me image"></img>
+                    <Image width="700" height="709" src="/aboutme.jpeg" alt="an about me image"></Image>
                 </div>
                 <br></br>
                 <div className="about-text">
