@@ -1,5 +1,5 @@
 import React from 'react'
-import ContactPreview from '/Users/sophia/Desktop/scH4I/mywebh4i/bootcamp-milestone-2/src/components/contactPreview.jsx';
+import ContactPreview from '@/components/contactPreview';
 
 export default async function Contact() {
     return ( <div>
