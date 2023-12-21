@@ -26,7 +26,7 @@ const CreateComment = (slug: any) => {
 
   useEffect(() => {
     router.refresh();
-  }, [name, message])
+  }, [name, message, router])
 
   return (
     <form onSubmit={handleSubmit} id="comment-form">

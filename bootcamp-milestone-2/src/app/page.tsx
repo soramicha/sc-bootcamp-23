@@ -4,7 +4,7 @@ import Image from 'next/image'
 // You can name the function within page.tsx anything you want.
 export default function Home() {
   return ( <div>
-		<title>Sophia's Personal Website</title>
+		<title>Sophia&apos;s Personal Website</title>
         <main>
             <br></br>
             <h1 className='title'>Welcome!</h1>
