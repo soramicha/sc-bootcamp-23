@@ -2,7 +2,12 @@
 import mongoose from "mongoose";
 
 const url: string = process.env.MONGO_URI as string;
+console.log(url + "is the url, sophia");
 let connection: typeof mongoose;
+
+if (!url) {
+  console.log("URL is not defined.");
+}
 
 /**
  * Makes a connection to a MongoDB database. If a connection already exists, does nothing
