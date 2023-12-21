@@ -1,6 +1,6 @@
 //import type { Metadata } from "next";
 //import { Inter } from "next/font/google"; // You can change the font to anything you want.
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar";
 import "./globals.css";
 
 /*const inter = Inter({ subsets: ["latin"] });

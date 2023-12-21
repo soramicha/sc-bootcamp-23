@@ -1,7 +1,7 @@
 import React from 'react'
 import './page.css'
 import connectDB from '@/helpers/db';
-import Portfolios from '@/database/PortfolioSchema';
+import Portfolios from '@/database/portfolioSchema';
 import PortfolioPreview from '@/components/portfoliopreview';
 
 /*export default function Portfolio() {
