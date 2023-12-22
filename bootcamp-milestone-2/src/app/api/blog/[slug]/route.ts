@@ -25,11 +25,12 @@ type IParams = {
 
  */
 export async function GET(req: NextRequest, { params }: IParams) {
-    await connectDB() // function from db.ts before
+    await connectDB(); // function from db.ts before
 		const { slug } = params // another destructure
-
+		console.log("fetched data for blog");
 	   try {
 	        const blog = await blogSchema.findOne({ slug }).orFail()
+			console.log("found the blog");
 	        return NextResponse.json(blog)
 	    } catch (err) {
 	        return NextResponse.json('Blog not found.', { status: 404 })
@@ -56,6 +57,4 @@ export async function POST(req: NextRequest, { params }: IParams) {
 		console.log("FAILED :(");
 		return NextResponse.json('Unable to add comment', { status: 404 });
 	}
-
-	
 }

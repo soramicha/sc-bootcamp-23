@@ -1,10 +1,7 @@
 import React from 'react'
 import ContactPreview from '@/components/contactPreview';
-import connectDB from '@/helpers/db';
 
-export default async function Contact() {
-    await connectDB();
-    
+export default function Contact() {
     return ( <div>
     <title>Contact</title>
     <main>
