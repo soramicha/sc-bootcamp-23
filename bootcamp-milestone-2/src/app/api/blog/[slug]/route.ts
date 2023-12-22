@@ -40,9 +40,7 @@ console.log("get blog a");
 }
 
 export async function POST(req: NextRequest, { params }: IParams) {
-	console.log("post a before");
 	await connectDB();
-	console.log("post b after");
 	const { slug } = params;
 
 	console.log(slug);

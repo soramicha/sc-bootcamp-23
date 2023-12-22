@@ -10,8 +10,8 @@ type Props = {
 };
 
 async function getPortfolio(slug: string | null) {
-  try {
-    const res = await fetch(`http://localhost:3000/api/portfolio/${slug}`, {
+  try { // http://localhost:3000/api/portfolio/${slug}
+    const res = await fetch(`https://sc-bootcamp-23.vercel.app/portfolio/${slug}`, {
       method: "GET",
       cache: "no-store",
     });
