@@ -1,5 +1,5 @@
 import React from 'react'
-import ContactPreview from '@/components/contactPreview';
+import ContactPreview from '@/components/contactPreview.jsx';
 
 export default async function Contact() {
     return ( <div>
