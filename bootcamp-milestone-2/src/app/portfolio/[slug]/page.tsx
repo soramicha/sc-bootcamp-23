@@ -12,6 +12,7 @@ type Props = {
 
 async function getPortfolio(slug: string) {
   await connectDB();
+  
   try {
     const res = await fetch(`http://localhost:3000/api/portfolio/${slug}`, {
       cache: "no-store",
