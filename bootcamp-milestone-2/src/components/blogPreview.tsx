@@ -1,5 +1,4 @@
 import React from 'react';
-//import type { Blog } from "@/app/blogData.js"
 import type { IBlog } from "@/database/blogSchema"
 import style from './blogPreview.module.css'
 import Link from "../../node_modules/next/link";

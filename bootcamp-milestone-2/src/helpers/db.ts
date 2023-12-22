@@ -16,6 +16,7 @@ if (!url) {
  */
 const connectDB = async () => {
   if (!connection) {
+    console.log("Trying to connect...");
     connection = await mongoose.connect(url);
     console.log("Database connected");
     return connection;

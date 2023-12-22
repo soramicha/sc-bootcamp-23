@@ -10,9 +10,10 @@ type Props = {
   params: { slug: string };
 };
 
-async function getBlog(slug: string) {
+async function getBlog(slug: string | null) {
   try {
     const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
+      method: "GET",
       cache: "no-store",
     });
 
@@ -30,7 +31,7 @@ async function getBlog(slug: string) {
 export default async function IndivBlog({ params }: Props) {
   const slug = params.slug;
   const blog = await getBlog(slug);
-
+  
   if (blog == null) {
     return (
       <div>

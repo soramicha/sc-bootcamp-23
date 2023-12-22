@@ -10,11 +10,12 @@ type Props = {
   params: { slug: string };
 };
 
-async function getPortfolio(slug: string) {
+async function getPortfolio(slug: string | null) {
   await connectDB();
-  
+
   try {
     const res = await fetch(`http://localhost:3000/api/portfolio/${slug}`, {
+      method: "GET",
       cache: "no-store",
     });
 
