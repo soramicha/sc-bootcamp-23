@@ -1,5 +1,5 @@
 import React from 'react'
-import ContactPreview from '@/components/contactPreview.jsx';
+//import ContactPreview from '@/components/contactPreview.jsx';
 
 export default async function Contact() {
     return ( <div>
@@ -7,8 +7,9 @@ export default async function Contact() {
     <main>
         <br></br>
         <h1 className="page-title">Contact</h1>
-        <ContactPreview/>
+        
         <br></br>
     </main>
 </div>)
 }
+// <ContactPreview/>
