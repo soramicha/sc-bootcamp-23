@@ -12,9 +12,9 @@ type Props = {
 
 async function getPortfolio(slug: string | null) {
   try { // http://localhost:3000/api/portfolio/${slug}
-    const p = await Portfolio.findOne({ slug }).orFail();
-    return p;
-    /*const res = await fetch(`/api/portfolio/${slug}`, {
+    /*const p = await Portfolio.findOne({ slug }).orFail();
+    return p;*/
+    const res = await fetch(`https://sc-bootcamp-23.vercel.app/api/portfolio/${slug}`, {
       cache: "no-store",
     });
 
@@ -22,7 +22,7 @@ async function getPortfolio(slug: string | null) {
       throw new Error("Failed to fetch portfolio");
     }
 
-    return res.json();*/
+    return res.json();
   } catch (err: unknown) {
     console.log(`error: ${err}`);
     return null;

@@ -24,7 +24,8 @@ type IParams = {
 	lol.
 
  */
-/*export async function GET(req: NextRequest, { params }: IParams) {
+
+export async function GET(req: NextRequest, { params }: IParams) {
   console.log("get blog b");
   await connectDB(); // function from db.ts before
 console.log("get blog a"); 
@@ -37,7 +38,7 @@ console.log("get blog a");
   } catch (err) {
     return NextResponse.json("Blog not found.", { status: 404 });
   }
-}*/
+}
 
 export async function POST(req: NextRequest, { params }: IParams) {
 	await connectDB();

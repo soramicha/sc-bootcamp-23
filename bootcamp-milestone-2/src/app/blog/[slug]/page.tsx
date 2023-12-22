@@ -14,9 +14,9 @@ type Props = {
 async function getBlog(slug: string | null) {
   await connectDB();
   try {
-    const blog = await Blog.findOne({ slug }).orFail();
-    return blog;
-    /*const res = await fetch(`api/blog/${slug}`, {
+    /*const blog = await Blog.findOne({ slug }).orFail();
+    return blog;*/
+    const res = await fetch(`https://sc-bootcamp-23.vercel.app/api/blog/${slug}`, {
       cache: "no-store",
     });
 
@@ -24,7 +24,7 @@ async function getBlog(slug: string | null) {
       throw new Error("Failed to fetch blog");
     }
 
-    return res.json();*/
+    return res.json();
   } catch (err: unknown) {
     console.log(`error: ${err}`);
     return null;
