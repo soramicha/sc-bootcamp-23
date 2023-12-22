@@ -4,12 +4,14 @@ import Comment from "@/components/commentPreview";
 import React from "react";
 import "./page.css";
 import Image from 'next/image'
+import connectDB from "@/helpers/db";
 
 type Props = {
   params: { slug: string };
 };
 
 async function getBlog(slug: string) {
+  await connectDB();
   try {
     const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
       cache: "no-store",

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { IComment } from "@/database/blogSchema";
 import { useRouter } from "next/navigation";
+import connectDB from "@/helpers/db";
 
 const CreateComment = (slug: any) => {
   const [name, setName] = useState("");
@@ -10,6 +11,7 @@ const CreateComment = (slug: any) => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    await connectDB();
     const c: IComment = { user: name, comment: message, time: new Date() };
 
     const res = await fetch(`/api/blog/${slug.slug}`, {
