@@ -11,7 +11,7 @@ type Props = {
 
 async function getPortfolio(slug: string | null) {
   try { // http://localhost:3000/api/portfolio/${slug}
-    const res = await fetch(`https://sc-bootcamp-23.vercel.app/portfolio/${slug}`, {
+    const res = await fetch(`https://sc-bootcamp-23-gbjmzck2s-soramichas-projects.vercel.app/portfolio/${slug}`, {
       method: "GET",
       cache: "no-store",
     });
