@@ -25,7 +25,9 @@ type IParams = {
 
  */
 export async function GET(req: NextRequest, { params }: IParams) {
+  console.log("get blog b");
   await connectDB(); // function from db.ts before
+console.log("get blog a"); 
   const { slug } = params; // another destructure
   console.log("fetched data for blog");
   try {
@@ -38,7 +40,9 @@ export async function GET(req: NextRequest, { params }: IParams) {
 }
 
 export async function POST(req: NextRequest, { params }: IParams) {
+	console.log("post a before");
 	await connectDB();
+	console.log("post b after");
 	const { slug } = params;
 
 	console.log(slug);

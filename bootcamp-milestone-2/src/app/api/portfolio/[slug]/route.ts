@@ -25,8 +25,10 @@ type IParams = {
 
  */
 export async function GET(req: NextRequest, { params }: IParams) {
-    await connectDB() // function from db.ts before
-		const { slug } = params // another destructure
+   console.log("get p before");
+	await connectDB() // function from db.ts before
+	console.log("get p good");	
+	const { slug } = params // another destructure
 		console.log("Searching for portfolio atm");
 	   try {
 	        const blog = await portfolioSchema.findOne({ slug }).orFail()
@@ -37,7 +39,9 @@ export async function GET(req: NextRequest, { params }: IParams) {
 }
 
 export async function POST(req: NextRequest, { params }: IParams) {
+	console.log("post portfolio before");
 	await connectDB();
+	console.log("post portfolio good");
 	const { slug } = params;
 
 	console.log(slug + " is the slug for portfolio");
