@@ -30,7 +30,9 @@ import PortfolioPreview from '@/components/portfoliopreview';
 }*/
 
 async function getPortfolio(){
+    console.log("getting portfolios");
 	await connectDB(); // function from db.ts before
+    console.log("collected portfolios");
 
 	try {
 			// query for all blogs and sort by date

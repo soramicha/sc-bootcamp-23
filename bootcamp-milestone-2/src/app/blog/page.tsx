@@ -32,7 +32,9 @@ import Blog from "@/database/blogSchema";
 }*/
 
 async function getBlogs() {
+console.log("getting blogs");
   await connectDB(); // function from db.ts before
+console.log("collected blogs");
 
   try {
     // query for all blogs and sort by date
