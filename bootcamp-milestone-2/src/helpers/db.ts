@@ -1,7 +1,7 @@
 // db.ts
 import mongoose from "mongoose";
 
-const url: string = "abscs" //process.env.MONGO_URI as string;
+const url: string = "mongodb+srv://newUser:newPassword@cluster0.u7yygtu.mongodb.net/test?retryWrites=true&w=majority" //process.env.MONGO_URI as string;
 console.log(url + "is the url, sophia");
 let connection: typeof mongoose;
 
