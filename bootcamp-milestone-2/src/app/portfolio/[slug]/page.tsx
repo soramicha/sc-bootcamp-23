@@ -3,6 +3,7 @@ import CreateComment from "@/components/createCommentportfolio";
 import Comment from "@/components/commentPreview";
 import React from "react";
 import "./page.css";
+import Portfolio from "@/database/portfolioSchema";
 import Image from 'next/image'
 
 type Props = {
@@ -11,8 +12,9 @@ type Props = {
 
 async function getPortfolio(slug: string | null) {
   try { // http://localhost:3000/api/portfolio/${slug}
-    const res = await fetch(`https://sc-bootcamp-23-gbjmzck2s-soramichas-projects.vercel.app/portfolio/${slug}`, {
-      method: "GET",
+    const p = await Portfolio.findOne({ slug }).orFail();
+    return p;
+    /*const res = await fetch(`/api/portfolio/${slug}`, {
       cache: "no-store",
     });
 
@@ -20,7 +22,7 @@ async function getPortfolio(slug: string | null) {
       throw new Error("Failed to fetch portfolio");
     }
 
-    return res.json();
+    return res.json();*/
   } catch (err: unknown) {
     console.log(`error: ${err}`);
     return null;

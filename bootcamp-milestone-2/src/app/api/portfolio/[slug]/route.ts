@@ -24,7 +24,7 @@ type IParams = {
 	lol.
 
  */
-export async function GET(req: NextRequest, { params }: IParams) {
+/*export async function GET(req: NextRequest, { params }: IParams) {
    console.log("get p before");
 	await connectDB() // function from db.ts before
 	console.log("get p good");	
@@ -36,7 +36,7 @@ export async function GET(req: NextRequest, { params }: IParams) {
 	    } catch (err) {
 	        return NextResponse.json('Portfolio not found.', { status: 404 })
 	    }
-}
+}*/
 
 export async function POST(req: NextRequest, { params }: IParams) {
 	console.log("post portfolio before");

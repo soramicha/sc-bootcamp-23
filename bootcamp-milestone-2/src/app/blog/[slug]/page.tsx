@@ -3,16 +3,20 @@ import CreateComment from "@/components/createComment";
 import Comment from "@/components/commentPreview";
 import React from "react";
 import "./page.css";
+import Blog from "@/database/blogSchema";
 import Image from 'next/image'
+import connectDB from "@/helpers/db";
 
 type Props = {
   params: { slug: string };
 };
 
 async function getBlog(slug: string | null) {
+  await connectDB();
   try {
-    const res = await fetch(`https://sc-bootcamp-23-gbjmzck2s-soramichas-projects.vercel.app/blog/${slug}`, {
-      method: "GET",
+    const blog = await Blog.findOne({ slug }).orFail();
+    return blog;
+    /*const res = await fetch(`api/blog/${slug}`, {
       cache: "no-store",
     });
 
@@ -20,7 +24,7 @@ async function getBlog(slug: string | null) {
       throw new Error("Failed to fetch blog");
     }
 
-    return res.json();
+    return res.json();*/
   } catch (err: unknown) {
     console.log(`error: ${err}`);
     return null;
