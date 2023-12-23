@@ -10,6 +10,10 @@ export const ContactPreview = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
+  const style = {
+    color: "black"
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -47,6 +51,7 @@ export const ContactPreview = () => {
         onChange={(e) => setName(e.target.value)}
         placeholder="Name"
         name="user_name"
+        style={style}
         id="name"
         type="text"
       ></input>
@@ -57,6 +62,7 @@ export const ContactPreview = () => {
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Email"
         name="user_email"
+        style={style}
         id="email"
         type="email"
       ></input>
@@ -64,6 +70,7 @@ export const ContactPreview = () => {
       <br></br>
       <textarea
         id="message"
+        style={style}
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         className="ta"
