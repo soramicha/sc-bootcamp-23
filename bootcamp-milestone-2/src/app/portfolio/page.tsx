@@ -56,8 +56,8 @@ export default async function PortfolioList() {
     }
     else {
         return (
-            <main>
-                <title>Portfolio</title>
+            <div>
+                <h1 className="title">Portfolio</h1>
                 <div className="indivblog">
                 {portfoliolist.map((p) => (
                     <PortfolioPreview key={p._id}
@@ -70,8 +70,7 @@ export default async function PortfolioList() {
                     /> // This is how we call the component
                     ))}
                 </div>
-
-            </main>
+            </div>
         );
     }
 }

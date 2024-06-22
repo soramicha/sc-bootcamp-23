@@ -49,7 +49,7 @@ export default async function IndivBlog({ params }: Props) {
         <main>
           <br></br>
           <h1 className="page-title">{blog.title}</h1>
-          <Image className="blogimg" width="300" height="250" alt="img" src={`${blog.image}`}></Image>
+          <Image className="blogimg" width="250" height="250" alt="img" src={`${blog.image}`}></Image>
           <br></br>
           <p>{new Date(blog.date).toDateString()}</p>
           <p>{blog.description}</p>

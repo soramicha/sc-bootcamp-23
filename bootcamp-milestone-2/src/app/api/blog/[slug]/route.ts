@@ -41,14 +41,14 @@ console.log("get blog a");
 }
 
 export async function POST(req: NextRequest, { params }: IParams) {
-	await connectDB();
-	const { slug } = params;
+	await connectDB(); // connect to the database
+	const { slug } = params; // this holds the slug of my blog
 
-	console.log(slug);
+	// console.log(slug);
 
 	try {
 		const blog = await blogSchema.findOne({ slug }).orFail(); // get the particular blog
-		const body = await req.json();
+		const body = await req.json(); // gets the entire data sent by handleSubmit
 		blog.comments.push(body);
 
 		blog.save();

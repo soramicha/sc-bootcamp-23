@@ -12,7 +12,7 @@ export default function BlogPreview(props: IBlog) {
         <h1>{props.title}</h1>
             <p>{new Date(props.date).toLocaleDateString()}</p>
             <p>{props.description}</p>
-            <Image className="image" alt="img" height={250} width={300} src={props.image}></Image>
+            <Image className="image" alt="img" height="250" width="275" src={props.image}></Image>
             <Link href={`/blog/${props.slug}`}>Read More</Link>
             <br></br>
         </div>

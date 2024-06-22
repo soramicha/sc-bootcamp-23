@@ -8,9 +8,11 @@ const CreateComment = (slug: any) => {
   const [message, setMessage] = useState("");
   const router = useRouter();
 
+  console.log("typed a letter");
+
   const style = {
-    color: "black"
-  }
+    color: "black",
+  };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -29,7 +31,7 @@ const CreateComment = (slug: any) => {
 
     router.refresh();
   };
-  
+
   return (
     <form onSubmit={handleSubmit} id="comment-form">
       <input

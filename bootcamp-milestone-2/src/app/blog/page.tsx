@@ -58,7 +58,7 @@ export default async function BlogList() {
   } else {
     return (
       <main>
-        <title>Blogs</title>
+        <h1 className="h1title">Blogs</h1>
         <div className="indivblog">
           {listofblogs.map((blog) => (
             <BlogPreview
