@@ -15,7 +15,7 @@ export default function Home() {
                 </div>
                 <br></br>
                 <div className="about-text">
-                    <p>Hello, my name is <b>Sophia Chang!</b> I am currently <i>18 years old</i> studying <strong>computer science</strong>.</p>
+                    <p>Hello, my name is <b>Sophia Chang!</b> I am currently <i>a third year</i> studying <strong>computer science</strong>.</p>
                     <p>In my free time, I often make <em>digital art</em> and <em>animate</em>. I enjoy <i>video editing</i> as well.</p>
                 </div>
             </div>
